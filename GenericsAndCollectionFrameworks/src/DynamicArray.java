@@ -50,9 +50,6 @@ public class DynamicArray {
      */
 
     public Object get(int index) {
-        if (index < 0 || index >= size){
-            throw new IndexOutOfBoundsException("The index is out of bounds");
-        }
         checkIndex(index);
         return data[index];
     }
@@ -63,12 +60,8 @@ public class DynamicArray {
      */
 
     public void set(int index, Object value) {
-        if(index <0|| index>= size){
-            throw new IndexOutOfBoundsException("The index is out of bounds");
-        }
         checkIndex(index);
         data[index] = value;
-
     }
 
     /**
@@ -78,12 +71,7 @@ public class DynamicArray {
      */
     public void add(Object value) {
         if(size == data.length){
-            Object[] newData = new Object[data.length*2];
-
-            for (int i = 0; i < data.length; i++) {
-                newData[i] = data[i];
-            }
-            data = newData;
+            grow();
         }
         data[size] = value;
         size++;
@@ -96,16 +84,8 @@ public class DynamicArray {
      * Should throw IndexOutOfBoundsException if index < 0 or index > size.
      */
     public void add(int index, Object value) {
-        if(index < 0 || index > size){
-            throw new IndexOutOfBoundsException("The index is out of bounds");
-        }
-        if(size == data.length){
-            Object[] newData = new Object[data.length * 2];
-            for (int i = 0; i < data.length; i++) {
-                newData[i] = data[i];
-            }
-            data = newData;
-        }
+        checkIndex(index);
+        grow();
         //changing that index position to the right
         for (int i = size; i > index ; i--) {
             data[i] = data[i-1];
@@ -120,9 +100,7 @@ public class DynamicArray {
      * Should throw IndexOutOfBoundsException if index < 0 or index >= size.
      */
     public Object remove(int index) {
-        if(index < 0 || index >= size){
-            throw new IndexOutOfBoundsException("The index is out of bounds");
-        }
+        checkIndex(index);
         Object removedData = data[index];
         //changing that index position to the left
         for(int i = index; i< size - 1; i++){
