@@ -18,7 +18,6 @@ public class DynamicArray {
      * The size should start at 0.
      */
     public DynamicArray(int initialCapacity) {
-        // TODO: implement
         Object[] data  = new Object[initialCapacity];
         this.data = data;
         this.size = 0;
@@ -28,7 +27,6 @@ public class DynamicArray {
      * Creates a DynamicArray with a default initial capacity of 10.
      */
     public DynamicArray() {
-        // TODO: implement (hint: call the other constructor)
         this(10);
     }
 
@@ -37,7 +35,6 @@ public class DynamicArray {
      */
 
     public int size() {
-        // TODO: implement
         return this.size;
     }
 
@@ -45,7 +42,6 @@ public class DynamicArray {
      * Returns true if the array contains no elements.
      */
     public boolean isEmpty() {
-        // TODO: implement
         return this.size == 0;
     }
     /**
@@ -54,7 +50,6 @@ public class DynamicArray {
      */
 
     public Object get(int index) {
-        // TODO: implement
         if (index < 0 || index >= size){
             throw new IndexOutOfBoundsException("The index is out of bounds");
         }
@@ -68,7 +63,6 @@ public class DynamicArray {
      */
 
     public void set(int index, Object value) {
-        // TODO: implement
         if(index <0|| index>= size){
             throw new IndexOutOfBoundsException("The index is out of bounds");
         }
@@ -83,7 +77,6 @@ public class DynamicArray {
      * before adding the element.
      */
     public void add(Object value) {
-        // TODO: implement
         if(size == data.length){
             Object[] newData = new Object[data.length*2];
 
@@ -103,7 +96,6 @@ public class DynamicArray {
      * Should throw IndexOutOfBoundsException if index < 0 or index > size.
      */
     public void add(int index, Object value) {
-        // TODO: implement
         if(index < 0 || index > size){
             throw new IndexOutOfBoundsException("The index is out of bounds");
         }
@@ -128,7 +120,6 @@ public class DynamicArray {
      * Should throw IndexOutOfBoundsException if index < 0 or index >= size.
      */
     public Object remove(int index) {
-        // TODO: implement
         if(index < 0 || index >= size){
             throw new IndexOutOfBoundsException("The index is out of bounds");
         }
@@ -147,7 +138,6 @@ public class DynamicArray {
      * Use .equals() for comparison (handle null safely).
      */
     public boolean contains(Object value) {
-        // TODO: implement
         for (int i = 0; i < size; i++) {
             if(data[i] != null && data[i].equals(value)){
                 return true;
@@ -161,7 +151,6 @@ public class DynamicArray {
      * or -1 if the value is not found.
      */
     public int indexOf(Object value) {
-        // TODO: implement
         for (int i = 0; i < size; i++) {
             if(value == null && data[i] == null){
                 return i;
@@ -177,7 +166,6 @@ public class DynamicArray {
      * Removes all elements from the array. Size becomes 0.
      */
     public void clear() {
-        // TODO: implement
         for (int i = 0; i < size; i++) {
             data[i]= null;
         }
@@ -191,7 +179,6 @@ public class DynamicArray {
      */
     @Override
     public String toString() {
-        // TODO: implement
 
         if(size == 0){
             return "[]";
@@ -218,7 +205,6 @@ public class DynamicArray {
      * (Hint: create a new Object[] with double length, copy elements, reassign)
      */
     private void grow() {
-        // TODO: implement
         Object[] newData = new Object[data.length * 2];
         for (int i = 0; i < size; i++) {
             newData[i] = data[i];
@@ -231,11 +217,8 @@ public class DynamicArray {
      * If not, throws IndexOutOfBoundsException.
      */
     private void checkIndex(int index) {
-        // TODO: implement
         if(index < 0 || index >= size){
             throw new IndexOutOfBoundsException("The index is out of bounds");
         }
-        checkIndex(index);
-
     }
 }
