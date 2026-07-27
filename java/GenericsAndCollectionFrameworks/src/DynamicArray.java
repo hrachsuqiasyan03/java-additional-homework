@@ -53,7 +53,6 @@ public class DynamicArray {
         if (index < 0 || index >= size){
             throw new IndexOutOfBoundsException("The index is out of bounds");
         }
-        checkIndex(index);
         return data[index];
     }
 
@@ -66,9 +65,7 @@ public class DynamicArray {
         if(index <0|| index>= size){
             throw new IndexOutOfBoundsException("The index is out of bounds");
         }
-        checkIndex(index);
         data[index] = value;
-
     }
 
     /**
